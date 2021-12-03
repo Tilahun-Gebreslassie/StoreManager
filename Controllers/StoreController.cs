@@ -23,6 +23,11 @@ namespace StoreManager.Controllers
 
         public ActionResult Index()
         {
+            if (Session["FullName"] == null)
+            {
+                return RedirectToAction("Login", "Account");
+            }
+            ViewBag.FirstName = Session["FirstName"];
             return View(db.Stores.Where(s => s.Quantity > 0).ToList());
         }
 

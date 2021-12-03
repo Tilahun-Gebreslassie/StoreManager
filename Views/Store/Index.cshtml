@@ -4,13 +4,13 @@
     ViewBag.Title = "Welcome";
 }
 
-<h2>Welcome to the Store</h2>
+<h2>Welcome to the Store, @ViewBag.FirstName</h2>
 
 <div style="display:flex; flex-wrap:wrap">
 
     @foreach (var item in Model)
     {
-        <div style="padding:20px;">
+        <div style="margin-right:20px; padding:20px; border-style:solid; border-color:lightgray">
             <div>
                 <h2>@Html.DisplayFor(modelItem => item.Name)</h2>
             </div>
@@ -22,7 +22,7 @@
                 Price:
                 @Html.DisplayFor(modelItem => item.UnitPrice)
             </div>
-            <input style="width:60px;"
+            <input style="width:70px;"
                    class="col-md-2" type="number" min=0 max=@Html.DisplayFor(modelItem => item.Quantity) value="0" />
         </div>
     }

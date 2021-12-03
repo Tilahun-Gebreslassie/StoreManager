@@ -82,6 +82,7 @@ namespace StoreManager.Models
                 if (data.Count() > 0)
                 {
                     //add session
+                    Session["FirstName"] = data.FirstOrDefault().FirstName;
                     Session["FullName"] = data.FirstOrDefault().FirstName + " " + data.FirstOrDefault().LastName;
                     Session["Email"] = data.FirstOrDefault().Email;
                     Session["Id"] = data.FirstOrDefault().Id;
