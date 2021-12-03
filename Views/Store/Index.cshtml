@@ -1,0 +1,36 @@
+﻿@model IEnumerable<Store_Management.Models.Store>
+
+@{
+    ViewBag.Title = "Welcome";
+}
+
+<h2>Welcome to the Store</h2>
+
+<div style="display:flex; flex-wrap:wrap">
+
+    @foreach (var item in Model)
+    {
+        <div style="padding:20px;">
+            <div>
+                <h2>@Html.DisplayFor(modelItem => item.Name)</h2>
+            </div>
+            <div>
+                Available :
+                @Html.DisplayFor(modelItem => item.Quantity)
+            </div>
+            <div>
+                Price:
+                @Html.DisplayFor(modelItem => item.UnitPrice)
+            </div>
+            <input style="width:60px;"
+                   class="col-md-2" type="number" min=0 max=@Html.DisplayFor(modelItem => item.Quantity) value="0" />
+        </div>
+    }
+
+</div>
+
+<hr />
+
+<div>
+    <input class="btn btn-default" type="submit" value="Purchase" />
+</div>
