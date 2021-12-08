@@ -21,9 +21,17 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Store", "Index", "Store")</li>
+                    @if (Session["FullName"] != null)
+                    {
+                       <li>@Html.ActionLink("Log Out", "Logout", "Account")</li>
+                    }
+                    else
+                    {
+                       <li> @Html.ActionLink("Register", "Register", "Account")</li>
+                       <li>@Html.ActionLink("Login", "Login", "Account")</li>
+            }
 
-                    <li>@Html.ActionLink("Register", "Register", "Account")</li>
-                    <li>@Html.ActionLink("Login", "Login", "Account")</li>
+                    
                 </ul>
             </div>
         </div>
